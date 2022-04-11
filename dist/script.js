@@ -2346,20 +2346,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var filter = function filter() {
   var menu = document.querySelector('.portfolio-menu');
-  var items = menu.querySelectorAll('li');
-  var btnAll = menu.querySelector('.all');
-  var btnLovers = menu.querySelector('.lovers');
-  var btnChef = menu.querySelector('.chef');
-  var btnGirl = menu.querySelector('.girl');
-  var btnGuy = menu.querySelector('.guy');
-  var btnGrandmother = menu.querySelector('.grandmother');
-  var btnGranddad = menu.querySelector('.granddad');
   var wrapper = document.querySelector('.portfolio-wrapper');
+  var items = menu.querySelectorAll('li');
   var markAll = wrapper.querySelectorAll('.all');
-  var markLovers = wrapper.querySelectorAll('.lovers');
-  var markChef = wrapper.querySelectorAll('.chef');
-  var markGirl = wrapper.querySelectorAll('.girl');
-  var markGuy = wrapper.querySelectorAll('.guy');
   var no = document.querySelector('.portfolio-no');
 
   var typeFilter = function typeFilter(markType) {
@@ -2370,7 +2359,7 @@ var filter = function filter() {
     no.style.display = "none";
     no.classList.remove('animated', 'fadeIn');
 
-    if (markType) {
+    if (markType && markType.length > 0) {
       markType.forEach(function (mark) {
         mark.style.display = 'block';
         mark.classList.add('animated', 'fadeIn');
@@ -2381,27 +2370,21 @@ var filter = function filter() {
     }
   };
 
-  btnAll.addEventListener('click', function () {
-    typeFilter(markAll);
-  });
-  btnLovers.addEventListener('click', function () {
-    typeFilter(markLovers);
-  });
-  btnChef.addEventListener('click', function () {
-    typeFilter(markChef);
-  });
-  btnGuy.addEventListener('click', function () {
-    typeFilter(markGuy);
-  });
-  btnGirl.addEventListener('click', function () {
-    typeFilter(markGirl);
-  });
-  btnGrandmother.addEventListener('click', function () {
-    typeFilter();
-  });
-  btnGranddad.addEventListener('click', function () {
-    typeFilter();
-  });
+  function pressButton(btnSelector, markSelector) {
+    var btn = menu.querySelector(btnSelector);
+    var mark = wrapper.querySelectorAll(markSelector);
+    btn.addEventListener('click', function () {
+      typeFilter(mark);
+    });
+  }
+
+  pressButton('.all', '.all');
+  pressButton('.lovers', '.lovers');
+  pressButton('.chef', '.chef');
+  pressButton('.girl', '.girl');
+  pressButton('.guy', '.guy');
+  pressButton('.grandmother');
+  pressButton('.granddad');
   menu.addEventListener('click', function (e) {
     var target = e.target;
 
