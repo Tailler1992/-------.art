@@ -7,8 +7,10 @@ const calc = (size, material, options, promocode, result) => {
 
     let sum = 0;
 
-    const calcFunc = () => {
+    const calcFunc = (e) => {
         sum = Math.round((+sizeBlock.value) * (+materialBlock.value) + (+optionsBlock.value));
+
+        removeTransparency(e.target);
 
         if (sizeBlock.value == '' || materialBlock.value == '') {
             resultBlock.textContent = 'Пожалуйста, выберите размер и материал картины';
@@ -19,10 +21,18 @@ const calc = (size, material, options, promocode, result) => {
         }
     };
 
-    sizeBlock.addEventListener('change' , calcFunc);
-    materialBlock.addEventListener('change' , calcFunc);
-    optionsBlock.addEventListener('change' , calcFunc);
-    promocodeBlock.addEventListener('input' , calcFunc);
+    const removeTransparency = (block) => {
+        if (block.value && block.value != 0) {
+            block.style.opacity = 1;
+        } else {
+            block.style.opacity = 0.6;
+        }
+    }
+    
+    sizeBlock.addEventListener('change', calcFunc);
+    materialBlock.addEventListener('change', calcFunc);
+    optionsBlock.addEventListener('change', calcFunc);
+    promocodeBlock.addEventListener('input', calcFunc);
 
 };
 
