@@ -2278,8 +2278,9 @@ var calc = function calc(size, material, options, promocode, result) {
   var resultBlock = document.querySelector(result);
   var sum = 0;
 
-  var calcFunc = function calcFunc() {
+  var calcFunc = function calcFunc(e) {
     sum = Math.round(+sizeBlock.value * +materialBlock.value + +optionsBlock.value);
+    removeTransparency(e.target);
 
     if (sizeBlock.value == '' || materialBlock.value == '') {
       resultBlock.textContent = 'Пожалуйста, выберите размер и материал картины';
@@ -2287,6 +2288,14 @@ var calc = function calc(size, material, options, promocode, result) {
       resultBlock.textContent = Math.round(sum * 0.7);
     } else {
       resultBlock.textContent = sum;
+    }
+  };
+
+  var removeTransparency = function removeTransparency(block) {
+    if (block.value && block.value != 0) {
+      block.style.opacity = 1;
+    } else {
+      block.style.opacity = 0.6;
     }
   };
 
@@ -2693,7 +2702,7 @@ var sliders = function sliders(slides, dir, prev, next) {
     if (dir === 'vertical') {
       paused = setInterval(function () {
         plusSlides(1);
-        items[slideIndex - 1].classList.add('slideInDown');
+        items[slideIndex - 1].classList.add('fadeIn');
       }, 3000);
     } else {
       paused = setInterval(function () {
