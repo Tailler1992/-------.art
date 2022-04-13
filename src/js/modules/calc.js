@@ -28,7 +28,7 @@ const calc = (size, material, options, promocode, result) => {
             block.style.opacity = 0.6;
         }
     }
-    
+
     sizeBlock.addEventListener('change', calcFunc);
     materialBlock.addEventListener('change', calcFunc);
     optionsBlock.addEventListener('change', calcFunc);

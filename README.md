@@ -7,10 +7,10 @@
 ```bash
 
 # Загрузить репозиторий:
-git clone https://github.com/Tailler1992/...
+git clone https://github.com/Tailler1992/picture.art.git
 
 # Перейти в директорию с проектом:
-cd ...
+cd picture.art
 
 # Установить зависимости:
 npm install
@@ -30,4 +30,4 @@ npx gulp build-prod-js
 
 ## GitHub Pages:
 
-- [Home](https://tailler1992.github.io/...)
+- [Home](https://tailler1992.github.io/picture.art/dist/)

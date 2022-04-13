@@ -12,8 +12,8 @@ const burger = (menuSelector, burgerSelector) => {
         }
     });
 
-    window.addEventListener('resize', ()=> {
-        if(window.screen.availWidth > 992){
+    window.addEventListener('resize', () => {
+        if (window.screen.availWidth > 992) {
             menuElem.style.display = 'none';
         }
     });

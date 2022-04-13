@@ -4,7 +4,7 @@ const modals = () => {
         modalWindow.style.display = 'block';
         document.body.style.overflow = 'hidden';
         document.body.style.marginRight = `${calcScroll()}px`;
-        document.querySelector('.fixed-gift').style.right= `${calcScroll()}px`;
+        document.querySelector('.fixed-gift').style.right = `${calcScroll()}px`;
     }
 
     function closeModal(modalWindow) {
@@ -55,7 +55,7 @@ const modals = () => {
 
     function calcScroll() {
         let div = document.createElement('div');
-        
+
         div.style.width = '50px';
         div.style.height = '50px';
         div.style.overflowY = 'scroll';
